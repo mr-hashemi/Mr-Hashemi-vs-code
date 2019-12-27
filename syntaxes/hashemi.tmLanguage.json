@@ -1,0 +1,79 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Mr. Hashemi",
+	"scopeName": "source.hashem",
+
+	"patterns": [{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#value"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.hashemi",
+				"match": "\\b(age|bood|bechap|na?|ta)\\b"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.hashemi",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [{
+				"name": "constant.character.escape.hashemi",
+				"match": "\\\\."
+			}]
+		},
+		
+		"numbers": {
+			"name": "constant.numeric.hashemi",
+			"match": "((0(x|X)[0-9a-fA-F]*)|(\\+|-)?\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)([LlFfUuDdg]|UL|ul)?\\b"
+		},
+
+		"comments-inline": {
+			"patterns": [{
+					"begin": "/\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.hashemi"
+						}
+					},
+					"end": "\\*/",
+					"name": "comment.block.hashemi"
+				},
+				{
+					"begin": "(^[ \\t]+)?(?=//)",
+					"beginCaptures": {
+						"1": {
+							"name": "punctuation.whitespace.comment.leading.hashemi"
+						}
+					},
+					"end": "(?!\\G)",
+					"patterns": [{
+						"begin": "//",
+						"beginCaptures": {
+							"0": {
+								"name": "punctuation.definition.comment.hashemi"
+							}
+						},
+						"end": "\\n",
+						"name": "comment.line.double-slash.hashemi"
+					}]
+				}
+			]
+		},
+		
+		"value": {
+			"patterns": [
+				{"include": "#numbers"},
+				{"include": "#comments"},
+				{"include": "#comments-inline"}
+			]
+		}
+	}
+}

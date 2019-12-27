@@ -1,0 +1,25 @@
+{
+    "name": "mr-hashemi-lang-support",
+    "displayName": "Mr. Hashemi Language Support",
+    "description": "Syntax highlighting for Mr. Hashemi language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "hashemi",
+            "aliases": ["Mr. Hashemi", "hashemi"],
+            "extensions": [".hashem"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "hashemi",
+            "scopeName": "source.hashem",
+            "path": "./syntaxes/hashemi.tmLanguage.json"
+        }]
+    }
+}
